@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/schoolio/static/css/main.7f6ac34e.css",
-    "main.js": "/schoolio/static/js/main.adc5fec8.js",
+    "main.css": "/schoolio/static/css/main.25420d12.css",
+    "main.js": "/schoolio/static/js/main.92f415ce.js",
     "static/js/453.e5b82c4b.chunk.js": "/schoolio/static/js/453.e5b82c4b.chunk.js",
     "index.html": "/schoolio/index.html",
-    "main.7f6ac34e.css.map": "/schoolio/static/css/main.7f6ac34e.css.map",
-    "main.adc5fec8.js.map": "/schoolio/static/js/main.adc5fec8.js.map",
+    "main.25420d12.css.map": "/schoolio/static/css/main.25420d12.css.map",
+    "main.92f415ce.js.map": "/schoolio/static/js/main.92f415ce.js.map",
     "453.e5b82c4b.chunk.js.map": "/schoolio/static/js/453.e5b82c4b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7f6ac34e.css",
-    "static/js/main.adc5fec8.js"
+    "static/css/main.25420d12.css",
+    "static/js/main.92f415ce.js"
   ]
 }
