@@ -11,7 +11,36 @@ import Infotile from '../../components/infotile/infotile';
 export default function School() {
 
     let { identifier, name } = useParams();
-    const [school, setSchool] = useState({});
+    const [school, setSchool] = useState(
+        {
+            Name: "Loading...",
+             County: "Loading...",
+             City: "Loading...",
+             State: "Loading...",
+             'Education Percentile Rank': "Loading...",
+             'Economic Percentile Rank': "Loading...",
+             'Housing Percentile Rank': "Loading...",
+             'Gini index': "Loading...",
+             'Housing affordability': "Loading...",
+             'Housing vacancy rate': "Loading...",
+             'Incarceration rate': "Loading...",
+             'Infant mortality rate': "Loading...",
+             'Poverty': "Loading...",
+             'Violent crime rate': "Loading...",
+             'Access to broadband internet': "Loading...",
+             'Access to healthcare': "Loading...",
+             'Linguistic isolation': "Loading...",
+             'Low birth weight': "Loading...",
+             'Park access': "Loading...",
+             'SNAP recipients': "Loading...",
+             'Single-parent households': "Loading...",
+             'Lead exposure risk': "Loading...",
+             'American Indian and Alaska Native alone': "Loading...",   
+                'Asian alone': "Loading...",
+                'Black or African American alone': "Loading...",
+                'White alone': "Loading...",
+        }
+    );
 
     const ethnicityFields = [
         "American Indian and Alaska Native alone",
@@ -45,7 +74,7 @@ export default function School() {
 
 
     useEffect(() => {
-        Papa.parse('/schooldata.csv', {
+        Papa.parse(`${process.env.PUBLIC_URL}/schooldata.csv`, {
             download: true,
             header: true,
             skipEmptyLines: true,

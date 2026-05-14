@@ -21,17 +21,15 @@ export default function Schools() {
 
 
     useEffect(() => {
-        Papa.parse('/schooldata.csv', {
+        Papa.parse(`${process.env.PUBLIC_URL}/schooldata.csv`, {
             download: true,
             header: true,
             skipEmptyLines: true,
             complete: (results) => {
-                // console.log(results.data);
+                console.log(results.data);
                 setSchools(results.data);
                 setFilteredSchools(results.data);
-                // console.log('done');
                 setStates([...new Set(results.data.map(school => school.State))].sort());
-                // setCounties([...new Set(results.data.map(school => school.County))].sort());
             },
         });
     }, []);
@@ -64,16 +62,16 @@ export default function Schools() {
             <div className='controls-wrapper'>
                 <select onChange={handleStateChange}>
                     <option value="default">All States</option>
-                    {states.map((state) => (
-                        <option key={state} value={state}>
+                    {states.map((state, index) => (
+                        <option key={index} value={state}>
                             {`${state} (${new Intl.NumberFormat().format(schools.filter(school => school.State === state).length)})`}
                         </option>
                     ))}
                 </select>
                 {showCountyDropdown && <select onChange={handleCountyChange}>
                     <option value="">Choose a County</option>
-                    {counties.map((county) => (
-                        <option key={county} value={county}>
+                    {counties.map((county, index) => (
+                        <option key={index} value={county}>
                             {`${county} (${new Intl.NumberFormat().format(schools.filter(school => school.County === county).length)})`}
                         </option>
                     ))}
