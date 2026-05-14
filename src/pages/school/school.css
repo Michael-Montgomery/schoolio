@@ -1,0 +1,40 @@
+
+
+
+.school-info {
+    /* margin-bottom: 40px; */
+    text-align: center;
+    background-color: #d8d8d8;
+    width: 80%;
+    margin: 50px auto;
+    font-size: 1.5em;
+    padding: 10px;
+    border-radius: 18px;
+}
+
+
+.school h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.school-stats {
+    
+   text-align: center;
+   padding-left: 0;
+}
+
+.school-stats li {
+    display: inline;
+    flex-direction: column;
+    align-items: center;
+    margin: 12px;
+}
+
+
+
+
+
+
+

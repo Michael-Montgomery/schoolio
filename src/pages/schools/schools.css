@@ -1,0 +1,69 @@
+
+.controls-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding-top: 40px;
+}
+
+.controls-wrapper select {
+    padding: 8px;
+    font-size: 1em;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin: 0 10px;
+}
+
+.controls-wrapper input {
+    padding: 8px;
+    font-size: 1em;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin: 0 10px;
+}
+
+.schools table {
+    list-style-type: none;
+    padding: 0;
+    width: 90%;
+    /* text-align: center; */
+    margin: 10px auto;
+}
+
+.schools table tbody tr {
+    margin: 10px 0;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    /* transition: border-color 0.3s; */
+    font-size: 1.4em;
+}
+
+.count-span {
+    font-size: 0.6em;
+    color: #555;
+    margin-left: 10px;
+}
+.schools table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.schools table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.schools table tbody tr td {
+    padding: 4px;
+    text-align: left;
+    /* border: 1px solid #ddd; */
+}
+
+.schools table tbody tr:hover {
+    border-color: #007BFF;
+}
+
+.schools h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
