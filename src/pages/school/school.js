@@ -1,46 +1,66 @@
 import './school.css';
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Papa from 'papaparse';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import BarchartComponent from '../../components/barchartcomponent/barchartcomponent';
 import DoubleBarChart from '../../components/doublebarchartcomponent/doublebarchartcomponent';
 import utilities from '../../utilities/utilities';
 import Infotile from '../../components/infotile/infotile';
+import { CityContext } from '../../context/citycontext';
+import Header from '../../components/header/header';
 
 export default function School() {
+
+    const navigate = useNavigate();
+
+    const { addCity, citiesToCompare } = useContext(CityContext); // Destructure citiesToCompare from the context
+
+    const handleAddCity = (city) => {
+        addCity(city); // Add the selected city to the context
+        // console.log(citiesToCompare);
+        if (citiesToCompare.length === 0) {
+            setButtonText("Select a second school to compare");
+            setShowCompareBtn(false);
+        } else  {
+            navigate("/compare");
+        }
+    };
 
     let { identifier, name } = useParams();
     const [school, setSchool] = useState(
         {
             Name: "Loading...",
-             County: "Loading...",
-             City: "Loading...",
-             State: "Loading...",
-             'Education Percentile Rank': "Loading...",
-             'Economic Percentile Rank': "Loading...",
-             'Housing Percentile Rank': "Loading...",
-             'Gini index': "Loading...",
-             'Housing affordability': "Loading...",
-             'Housing vacancy rate': "Loading...",
-             'Incarceration rate': "Loading...",
-             'Infant mortality rate': "Loading...",
-             'Poverty': "Loading...",
-             'Violent crime rate': "Loading...",
-             'Access to broadband internet': "Loading...",
-             'Access to healthcare': "Loading...",
-             'Linguistic isolation': "Loading...",
-             'Low birth weight': "Loading...",
-             'Park access': "Loading...",
-             'SNAP recipients': "Loading...",
-             'Single-parent households': "Loading...",
-             'Lead exposure risk': "Loading...",
-             'American Indian and Alaska Native alone': "Loading...",   
-                'Asian alone': "Loading...",
-                'Black or African American alone': "Loading...",
-                'White alone': "Loading...",
+            County: "Loading...",
+            City: "Loading...",
+            State: "Loading...",
+            'Education Percentile Rank': "Loading...",
+            'Economic Percentile Rank': "Loading...",
+            'Housing Percentile Rank': "Loading...",
+            'Gini index': "Loading...",
+            'Housing affordability': "Loading...",
+            'Housing vacancy rate': "Loading...",
+            'Incarceration rate': "Loading...",
+            'Infant mortality rate': "Loading...",
+            'Poverty': "Loading...",
+            'Violent crime rate': "Loading...",
+            'Access to broadband internet': "Loading...",
+            'Access to healthcare': "Loading...",
+            'Linguistic isolation': "Loading...",
+            'Low birth weight': "Loading...",
+            'Park access': "Loading...",
+            'SNAP recipients': "Loading...",
+            'Single-parent households': "Loading...",
+            'Lead exposure risk': "Loading...",
+            'American Indian and Alaska Native alone': "Loading...",
+            'Asian alone': "Loading...",
+            'Black or African American alone': "Loading...",
+            'White alone': "Loading...",
         }
     );
+
+    const [showCompareBtn, setShowCompareBtn] = useState(true);
+    const [buttonText, setButtonText] = useState("Compare");
 
     const ethnicityFields = [
         "American Indian and Alaska Native alone",
@@ -89,6 +109,12 @@ export default function School() {
 
     return (
         <div className="school">
+            <Header />
+            <div className='school-buttons-wrapper'>
+            <button className='back-button' onClick={() => window.history.back()}>Back</button>
+            {showCompareBtn && <button className='compare-button' onClick={() => handleAddCity(school)}>{buttonText}</button>}
+            
+            </div>
             <h1>{school.Name}</h1>
 
             <div className='school-info'>
@@ -174,9 +200,9 @@ export default function School() {
                 <li>
                     <Infotile title='Linguistic Isolation' content={`${school['Linguistic isolation']}%`} />
                 </li>
-                <li>
+                {/* <li>
                     <Infotile title='Incarceration Rate' content={`${school['Incarceration rate']}%`} />
-                </li>
+                </li> */}
                 <li>
                     <Infotile title='Low Birth Weight' content={`${school['Low birth weight']}%`} />
                 </li>

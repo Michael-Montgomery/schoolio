@@ -2,12 +2,20 @@
 import './schools.css';
 // import schoolsCSV from '../../src/schooldata.csv';
 import Papa from 'papaparse';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { CityContext } from '../../context/citycontext';
+import Header from '../../components/header/header';
 
 export default function Schools() {
 
     const navigate = useNavigate();
+
+    const { addCity } = useContext(CityContext);
+
+    const handleAddCity = (city) => {
+        addCity(city); // Add the selected city to the context
+    };
 
 
     const [schools, setSchools] = useState([]);
@@ -59,6 +67,7 @@ export default function Schools() {
 
     return (
         <>
+        <Header />
             <div className='controls-wrapper'>
                 <select onChange={handleStateChange}>
                     <option value="default">All States</option>
@@ -97,6 +106,11 @@ export default function Schools() {
                                 <td>{school.City}</td>
                                 <td>{school.State}</td>
                                 <td>{school.County}</td>
+                                {/* <td>
+                                    <button onClick={() => handleAddCity(school)}>
+                                        Add to Compare
+                                    </button>
+                                    </td> */}
                             </tr>
                         ))}
                     </tbody>
