@@ -19,8 +19,12 @@ export const CityProvider = ({ children }) => {
         setCitiesToCompare(citiesToCompare.filter((c) => c !== city));
     };
 
+    const clearCities = () => {
+        setCitiesToCompare([]);
+    };
+
     return (
-        <CityContext.Provider value={{ citiesToCompare, addCity, removeCity }}>
+        <CityContext.Provider value={{ citiesToCompare, addCity, removeCity, clearCities }}>
             {children}
         </CityContext.Provider>
     );
