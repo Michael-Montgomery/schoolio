@@ -75,6 +75,7 @@ export default function Compare() {
     return (
         <div className='compare-page'>
             <Header />
+            {/* <button>Compare other schools</button> */}
             {/* <h1>Compare Schools</h1> */}
             {/* <DoubleBarChart data={schoolsToCompare[0]} color="#8884d8" />
             <DoubleBarChart data={schoolsToCompare[1]} color="#82ca9d" /> */}

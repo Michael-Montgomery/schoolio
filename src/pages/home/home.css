@@ -1,0 +1,49 @@
+
+
+.home {
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to bottom right, #37619C, #9C4D98);
+    padding-top: 25vh;
+
+}
+
+.home h2 {
+    font-size: 3.5em;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: "Playball", cursive;
+  font-weight: 700;
+  font-style: normal;
+  transform: rotate(-10deg);
+    
+}
+
+.home p {
+    font-size: 1.6em;
+    color: white;
+    max-width: 900px;
+    margin-bottom: 30px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.home button {
+    padding: 10px 20px;
+    font-size: 1.6em;
+    color: #37619C;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.home button:hover {
+    background-color: #f0f0f0;
+}

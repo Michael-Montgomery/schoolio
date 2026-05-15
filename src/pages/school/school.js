@@ -112,7 +112,7 @@ export default function School() {
             <Header />
             <div className='school-buttons-wrapper'>
             <button className='back-button' onClick={() => window.history.back()}>Back</button>
-            {showCompareBtn && <button className='compare-button' onClick={() => handleAddCity(school)}>{buttonText}</button>}
+            {showCompareBtn ? <button className='compare-button' onClick={() => handleAddCity(school)}>{buttonText}</button> : <button className='compare-button' onClick={() => navigate('/schools')}>Find a second school to compare</button>}
             
             </div>
             <h1>{school.Name}</h1>
